@@ -21,7 +21,6 @@ const SearchBar = () => {
     }
 
     return (
-        //paper is div with white background
         <Paper component="form"
             onSubmit={handleSubmit}
             sx={{

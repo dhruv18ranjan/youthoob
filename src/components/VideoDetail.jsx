@@ -15,9 +15,13 @@ const VideoDetail = () => {
   useEffect(() => {
     fetchFromAPI(`videos?part=snippet,statistics&id=${id}`).then((data) =>
       setVideoDetail(data.items[0])
-    )
+    ).catch((err)=>{
+      console.log(err);
+    })
 
-    fetchFromAPI(`search?part=snippet&relatedToVideoId=${id}&type=video`).then((data) => setVideos(data.items))
+    fetchFromAPI(`search?part=snippet&relatedToVideoId=${id}&type=video`).then((data) => setVideos(data.items)).catch((err)=>{
+      console.log(err);
+    })
 
   }, [id])
 
